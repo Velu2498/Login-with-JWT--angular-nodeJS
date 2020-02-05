@@ -27,7 +27,10 @@ function authentication(req, res, nxt) {
       nxt()
     }
     else{
-      res.status(401).json({
+      // res.status(401).json({
+      //   mssg:"not permitted"
+      // })
+      res.json({
         mssg:"not permitted"
       })
     }
@@ -143,7 +146,8 @@ app.get('/',function (req, res) {
 //check token
 app.post('/afterlogin', authentication , function (req, res) {
   res.status(200).json({
-    "key":"val"
+    "key":"val",
+    mssg:"permitted"
   })
 })
 
